@@ -135,12 +135,12 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.fooddeliveryapp"
+        applicationId "com.ddoboki.fooddeliveryapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        resValue "string", "build_config_package", "com.fooddeliveryapp"
+        resValue "string", "build_config_package", "com.ddoboki.fooddeliveryapp"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -278,10 +278,12 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation("com.naver.maps:map-sdk:3.12.0")
 }
 
 if (isNewArchitectureEnabled()) {
-    // If new architecture is enabled, we let you build RN from source
+    // If new architecture is enabled, we let you build RN from source{
     // Otherwise we fallback to a prebuilt .aar bundled in the NPM package.
     // This will be applied to all the imported transtitive dependency.
     configurations.all {
